@@ -1,0 +1,95 @@
+
+################################################################################
+# WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
+# Created on 2021-04-27T13:46:17+1000, using template:DockerfileRuntime.tmpl and json:gearbox.json
+# Referenced Docker container for docker-tinygo based off gearboxworks/gearbox-base:debian-buster with tinygo/tinygo:0.9.0 overlayed.
+
+ARG VERSION=0.9.0
+
+# 1. First reference the gearbox-base image.
+FROM gearboxworks/gearbox-base:debian-buster as gearbox-base
+
+# 2. Next reference the third party image.
+FROM tinygo/tinygo:0.9.0
+ARG VERSION
+ARG GEARBOX_ENTRYPOINT
+ARG GEARBOX_ENTRYPOINT_ARGS
+USER root
+
+# 3. Copy the build directory over from gearbox-base image.
+COPY --from=gearbox-base /etc/gearbox /etc/gearbox
+
+# 4. Set up env variables.
+MAINTAINER Gearbox Team <team@gearbox.works>
+ENV GEARBOX_CONTAINER_NAME "docker-tinygo"
+ENV GEARBOX_CONTAINER_VERSION ${VERSION}
+ENV GEARBOX_ENTRYPOINT ${GEARBOX_ENTRYPOINT}
+ENV GEARBOX_ENTRYPOINT_ARGS ${GEARBOX_ENTRYPOINT_ARGS}
+LABEL gearbox.json='{"schema": "gear-2","meta": {"state": "production","organization": "gearboxworks","name": "tinygo","label": "TinyGo Container","info": "TinyGo is a project to bring the Go programming language to microcontrollers and modern web browsers by creating a new compiler based on LLVM.","description": [""],"maintainer": "Gearbox Team <team@gearbox.works>","class": "development","refurl": "https://tinygo.org/"},"build": {"fixed_ports": {"http": "80","https": "443"},"ports": {"http": "80","https": "443"},"run": "","args": "","workdir": "","env": {"TINYGO_USER": "gearbox"},"network": "--network gearboxnet","volumes": "","restart": "--restart no"},"run": {"commands": {"default": "/usr/local/tinygo/bin/tinygo","tinygo": "/usr/local/tinygo/bin/tinygo"}},"project": {},"extensions": {},"versions": {"0.17.0": {"majorversion": "0.17","latest": true,"ref": "tinygo/tinygo:0.17.0","base": "gearboxworks/gearbox-base:debian-buster"},"0.16.0": {"majorversion": "0.16","latest": false,"ref": "tinygo/tinygo:0.16.0","base": "gearboxworks/gearbox-base:debian-buster"},"0.15.0": {"majorversion": "0.15","latest": false,"ref": "tinygo/tinygo:0.15.0","base": "gearboxworks/gearbox-base:debian-buster"},"0.14.1": {"majorversion": "0.14","latest": false,"ref": "tinygo/tinygo:0.14.1","base": "gearboxworks/gearbox-base:debian-buster"},"0.13.1": {"majorversion": "0.13","latest": false,"ref": "tinygo/tinygo:0.13.1","base": "gearboxworks/gearbox-base:debian-buster"},"0.12.0": {"majorversion": "0.12","latest": false,"ref": "tinygo/tinygo:0.12.0","base": "gearboxworks/gearbox-base:debian-buster"},"0.11.0": {"majorversion": "0.11","latest": false,"ref": "tinygo/tinygo:0.11.0","base": "gearboxworks/gearbox-base:debian-buster"},"0.10.0": {"majorversion": "0.10","latest": false,"ref": "tinygo/tinygo:0.10.0","base": "gearboxworks/gearbox-base:debian-buster"},"0.9.0": {"majorversion": "0.9","latest": false,"ref": "tinygo/tinygo:0.9.0","base": "gearboxworks/gearbox-base:debian-buster"},"0.8.0": {"majorversion": "0.8","latest": false,"ref": "tinygo/tinygo:0.8.0","base": "gearboxworks/gearbox-base:debian-buster"},"0.7.1": {"majorversion": "0.7","latest": false,"ref": "tinygo/tinygo:0.7.1","base": "gearboxworks/gearbox-base:debian-buster"},"0.6.1": {"majorversion": "0.6","latest": false,"ref": "tinygo/tinygo:0.6.1","base": "gearboxworks/gearbox-base:debian-buster"},"0.5.0": {"majorversion": "0.5","latest": false,"ref": "tinygo/tinygo:0.5.0","base": "gearboxworks/gearbox-base:debian-buster"}}}'
+LABEL gearbox.version='0.9.0'
+ENV GEARBOX_VERSION "0.9.0"
+LABEL container.class="development"
+ENV GEARBOX_CLASS "development"
+LABEL container.description="[]"
+ENV GEARBOX_DESCRIPTION "[]"
+LABEL container.info="TinyGo is a project to bring the Go programming language to microcontrollers and modern web browsers by creating a new compiler based on LLVM."
+ENV GEARBOX_INFO "TinyGo is a project to bring the Go programming language to microcontrollers and modern web browsers by creating a new compiler based on LLVM."
+LABEL container.label="TinyGo Container"
+ENV GEARBOX_LABEL "TinyGo Container"
+LABEL container.maintainer="Gearbox Team <team@gearbox.works>"
+ENV GEARBOX_MAINTAINER "Gearbox Team <team@gearbox.works>"
+LABEL container.name="tinygo"
+ENV GEARBOX_NAME "tinygo"
+LABEL container.organization="gearboxworks"
+ENV GEARBOX_ORGANIZATION "gearboxworks"
+LABEL container.refurl="https://tinygo.org/"
+ENV GEARBOX_REFURL "https://tinygo.org/"
+LABEL container.state="production"
+ENV GEARBOX_STATE "production"
+LABEL container.args=""
+ENV GEARBOX_ARGS ""
+# SKIP env
+LABEL container.fixed_ports="map[http:80 https:443]"
+ENV GEARBOX_FIXED_PORTS "map[http:80 https:443]"
+LABEL container.network="--network gearboxnet"
+ENV GEARBOX_NETWORK "--network gearboxnet"
+LABEL container.ports="map[http:80 https:443]"
+ENV GEARBOX_PORTS "map[http:80 https:443]"
+LABEL container.restart="--restart no"
+ENV GEARBOX_RESTART "--restart no"
+LABEL container.run=""
+ENV GEARBOX_RUN ""
+LABEL container.volumes=""
+ENV GEARBOX_VOLUMES ""
+LABEL container.workdir=""
+ENV GEARBOX_WORKDIR ""
+LABEL container.base="gearboxworks/gearbox-base:debian-buster"
+ENV GEARBOX_BASE "gearboxworks/gearbox-base:debian-buster"
+LABEL container.latest="false"
+ENV GEARBOX_LATEST "false"
+LABEL container.majorversion="0.9"
+ENV GEARBOX_MAJORVERSION "0.9"
+LABEL container.ref="tinygo/tinygo:0.9.0"
+ENV GEARBOX_REF "tinygo/tinygo:0.9.0"
+ENV TINYGO_USER "gearbox"
+
+# 5. Now copy the local files specific to this container.
+COPY build /etc/gearbox
+COPY versions/${VERSION}/build /etc/gearbox
+
+# 6. Run the base.sh script to set everything up.
+RUN /bin/sh /etc/gearbox/build/base.sh
+
+# 7. Run the tinygo.sh script to set everything up.
+RUN /bin/sh /etc/gearbox/build/tinygo.sh
+
+# 8. Expose ports.
+EXPOSE 22 9970 80 443 
+WORKDIR /home/gearbox/projects
+
+# 9. Run S6 init.
+ENTRYPOINT []
+CMD ["/init"]
+
+# END
+################################################################################
