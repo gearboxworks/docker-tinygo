@@ -1,5 +1,5 @@
 #!/bin/bash
-# Created on 2021-04-27T13:46:16+1000, using template:01-base.sh.tmpl and json:gearbox.json
+# Created on 2021-04-27T13:54:17+1000, using template:01-base.sh.tmpl and json:gearbox.json
 
 p_info "tinygo" "Release test started."
 

@@ -1,7 +1,7 @@
 
 ################################################################################
 # WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
-# Created on 2021-04-27T13:46:21+1000, using template:DockerfileRuntime.tmpl and json:gearbox.json
+# Created on 2021-04-27T13:54:21+1000, using template:DockerfileRuntime.tmpl and json:gearbox.json
 # Referenced Docker container for docker-tinygo based off gearboxworks/gearbox-base:debian-buster with tinygo/tinygo:0.11.0 overlayed.
 
 ARG VERSION=0.11.0
